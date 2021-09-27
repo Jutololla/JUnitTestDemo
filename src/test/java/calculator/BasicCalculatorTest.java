@@ -35,5 +35,39 @@ public class BasicCalculatorTest {
         assertEquals(expectedResult, basicCalculator.sum(first, second),
                 () -> first + " + " + second + " should equal " + expectedResult);
     }
-
+    @DisplayName("Testing several sus")
+    @ParameterizedTest(name = "{0} - {1} = {2}")
+    @CsvSource({
+            "0,    1,   -1",
+            "1,    2,   -1",
+            "49,  51, -2",
+            "1,  100, -99"
+    })
+    public void severalSus(Long first, Long second, Long expectedResult) {
+        assertEquals(expectedResult, basicCalculator.sus(first, second),
+                () -> first + " - " + second + " should equal " + expectedResult);
+    }
+    @DisplayName("Testing several mult")
+    @ParameterizedTest(name = "{0} * {1} = {2}")
+    @CsvSource({
+            "0,    1,   0",
+            "1,    2,   2",
+            "49,  51, 2499",
+            "1,  100, 100"
+    })
+    public void severalMult(Long first, Long second, Long expectedResult) {
+        assertEquals(expectedResult, basicCalculator.mult(first, second),
+                () -> first + " * " + second + " should equal " + expectedResult);
+    }
+    @DisplayName("Testing several divi")
+    @ParameterizedTest(name = "{0} / {1} = {2}")
+    @CsvSource({
+            "0,    1,   0",
+            "1,    2,   0,5",
+            "49,  51, 0,9607843137254902"
+    })
+    public void severalDivi(Long first, Long second, Long expectedResult) throws Exception {
+        assertEquals(expectedResult, basicCalculator.divi(first, second),
+                () -> first + " / " + second + " should equal " + expectedResult);
+    }
 }

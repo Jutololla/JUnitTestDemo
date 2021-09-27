@@ -28,7 +28,8 @@ public class BasicCalculator {
             logger.info("Dividing {} / {}", number1, number2);
             return a;
         } catch (Exception e) {
-            throw new Exception((String) ArithmeticException);
+            //throw new Exception((String) ArithmeticException);
+            return null;
         }
     }
 
